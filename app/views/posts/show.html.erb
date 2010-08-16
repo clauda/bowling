@@ -4,6 +4,7 @@
 <%= textilize @post.body %>
 
 <p style="color:grey;text-align:right;"><i>por <%= link_to @post.user.name, profiles_path %></i></p>
+ <%= tweet_button %>
 
 <p>
 <% @post.categories.each do |c| %>

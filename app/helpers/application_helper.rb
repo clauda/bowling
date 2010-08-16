@@ -1,5 +1,6 @@
 module ApplicationHelper
-  
+  include TweetButton
+
   def flash_message
     messages = ""
     [:notice, :info, :warning, :error].each do|type|
