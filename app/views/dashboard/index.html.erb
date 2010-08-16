@@ -1,5 +1,5 @@
 <h1>Posts</h1>
-<span class="right"><%= link_to image_tag('add.png'), new_post_path %></span>
+<span class="oright"><%= link_to image_tag('add.png'), new_post_path %></span>
 <%= render :partial => "posts/list" %>
 
 
@@ -21,10 +21,9 @@
 
 <br />
 <%= form_for Category.new do |f| %>
-  <div class="field">
+  <div class="field" style="width:100%">
     <%= f.label 'Nova Categoria' %>
-    <%= f.text_field :name %>
-    <%= f.submit t("Save"), :class => "submit" %>
+    <%= f.text_field :name %> <%= f.submit t("Save"), :class => "submit" %>
   </div>
 <% end %>
 </div>

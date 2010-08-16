@@ -42,13 +42,10 @@
         <%- end -%>
       </fieldset>
     </div>
-  <br />
-  <br />
 </div>
 
-    <div class="actions">
-      <%= f.submit t("Save"), :class => "submit" %>
-    </div>
-  <br />
+  <div class="actions">
+    <%= f.submit t("Save"), :class => "submit" %> or <%= link_to 'cancel', posts_path %>
+  </div>
   <% end %>
 

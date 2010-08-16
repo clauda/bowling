@@ -12,6 +12,7 @@ pt-BR:
   publish: "Publicar"
   Save: "Salvar"
   About: "Sobre"
+  cancel: "cancelar"
 
   attributes:
     name: "Nome"

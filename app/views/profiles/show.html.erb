@@ -5,10 +5,10 @@
   <%= image_tag @profile.photo.url(:thumb), :class => 'img' %>
 
 <div class="description">
-  <%= @profile.description %>
-  <%= @profile.site %>
+  <p><%= @profile.description %></p>
+  <p><%= @profile.site %></p>
 </div>
-
-
-<%= link_to t('Edit Your Profile'), edit_profile_path(@profile) %> |
-<%= link_to t('Back'), user_path(current_user) %>
+<div class="description">
+  <%= link_to t('Edit Your Profile'), edit_profile_path(@profile) %> |
+  <%= link_to t('Back'), user_path(current_user) %>
+</div>

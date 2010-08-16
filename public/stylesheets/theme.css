@@ -42,7 +42,7 @@ a.redlink:hover {color:#111; }
 	color:#b2b2b2;
 	padding:5px 0 0 0;
 }
-.right { float: right; margin-top: -30px; position: relative; }
+.oright { float: right; margin-top: -30px; position: relative; }
 #info .right {
 	float:right;
 }
@@ -106,15 +106,14 @@ a.redlink:hover {color:#111; }
   width: 65%;
   float: left;
   text-align: justify;
-  margin: 20px 10px 40px;
 }
 
 #column2 { 
   width: 25%;
   float: left;
   text-align: justify;
-  margin: 20px 10px 40px;
 }
+.actions { width: 100%; float: left; margin: 20px 0; }
 
 #menu {	
 	background:url(../images/menu.png) left top no-repeat;
@@ -299,6 +298,7 @@ input, textarea {
 	font:14px Arial, Helvetica, sans-serif;
 	margin:0px;
 	background:#fff;
+    width: 90%;
 }
 
 input:focus, textarea:focus {
@@ -539,14 +539,28 @@ border-top:1px solid #414510;
 	color:#0d2143;
 }
 
-.footer {
-    padding: 5px;
+#footer {
+    background-color: #383838;
+    clear:both;
+    margin-bottom:-15px;
+    margin-top:30px;
+    width:100%;
+    z-index:1;
 }
-
-.footer img {
-float:right;
+#foot-center {
+    color:#AAAAAA;
+    font-size:11px;
+    margin:10px auto;
+    width:960px;
 }
-
+#copyright a { color: #656565 }
+#copyright {
+    padding: 10px;
+    height:55px;
+    margin: auto;
+    margin-bottom:-10px;
+    width:960px;
+}
 ul.tabs {
 	margin: 0;
 	padding: 0;
