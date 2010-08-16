@@ -1,0 +1,27 @@
+<%= render :partial => "posts/list" %>
+<h1>Categories</h1>
+<div style="width:400px">
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Posts</th>
+  </tr>
+
+<% @categories.each do |category| %>
+  <tr>
+    <td><%= category.name %></td>
+    <td><%= category.posts.size %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+<%= form_for Category.new do |f| %>
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <%= f.submit t("Save"), :class => "submit" %>
+  </div>
+<% end %>
+</div>
+

@@ -1,0 +1,13 @@
+<h1><%= @user.name %></h1>
+
+<p>
+  <%= @user.email %>
+</p>
+
+<% if @user.profile %>
+  <p><%= @user.profile.description %></p>
+  <p>Site: <%= @user.profile.site %></p>
+  <%= link_to t('Edit Your Profile'), profile_path(@user.profile) %>
+<% else %>
+  <%= link_to t('Create Your Profile'), new_profile_path %>
+<% end %>

@@ -1,0 +1,37 @@
+<h1>Posts</h1>
+<div class="block">
+  <table>
+    <tr>
+      <th>Title</th>
+      <th>Slug</th>
+      <th>User</th>
+      <th>Status</th>
+      <th>Comments</th>
+      <th></th>
+    </tr>
+
+  <% @posts.each do |post| %>
+    <tr>
+      <td><%= link_to post.title, post %></td>
+      <td><%= post.slug %></td>
+      <td><%= post.user.name %></td>
+      <td>
+        <% if post.draft? %>
+          <%= form_tag publish_path(post), :method => :post do %>
+            <%= submit_tag t('publish'), :class => "submit", :disable_with => "wait..." %>
+          <% end %>
+        <% else %>
+          <%= t("published") %> <%= l post.published_at if post.published_at %>
+        <% end %>
+      </td>
+      <td><%= post.comments.size %></td>
+      <td><%= link_to image_tag('edit.png'), edit_post_path(post) %></td>
+    </tr>
+  <% end %>
+  </table>
+  <%= will_paginate @posts %>
+
+  <br />
+
+  <%= link_to t('New'), new_post_path %>
+</div>

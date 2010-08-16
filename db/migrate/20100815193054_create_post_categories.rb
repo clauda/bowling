@@ -1,6 +1,6 @@
 class CreatePostCategories < ActiveRecord::Migration
   def self.up
-    create_table :post_categories, :id => false do |t|
+    create_table :categories_posts, :id => false do |t|
       t.references :post, :null => false
       t.references :category, :null => false
 
@@ -9,6 +9,6 @@ class CreatePostCategories < ActiveRecord::Migration
   end
 
   def self.down
-    drop_table :post_categories
+    drop_table :categories_posts
   end
 end

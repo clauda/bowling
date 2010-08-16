@@ -12,30 +12,36 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :title %><br />
+    <%= f.label :title %>
     <%= f.text_field :title %>
   </div>
   <div class="field">
-    <%= f.label :body %><br />
-    <%= f.text_area :body %>
+    <%= f.label :body %>
+    <%= f.text_area :body, :id => "wysiwyg" %>
   </div>
   <div class="field">
-    <%= f.label :slug %><br />
+    <%= f.label :slug %>
     <%= f.text_field :slug %>
   </div>
   <div class="field">
-    <%= f.label :user %><br />
-    <%= f.text_field :user %>
+    <%= f.label :draft %>
+    <%= f.check_box :draft, :class => "checkbox" %>
   </div>
   <div class="field">
-    <%= f.label :draft %><br />
-    <%= f.check_box :draft %>
+    <%= f.label :published_at %>
+    <%= f.text_field :published_at, :type => "date" %>
   </div>
+<br />
   <div class="field">
-    <%= f.label :published_at %><br />
-    <%= f.datetime_select :published_at %>
+    <%- @categories.each do |c| -%>
+      <%= label_tag c.name %> <%= check_box_tag "post[category_ids][]", c.id, @post.categories.include?(c), :class => "checkbox" %> 
+    <%- end -%>
   </div>
+<br />
+<br />
+
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit t("Save"), :class => "submit" %>
   </div>
+<br />
 <% end %>

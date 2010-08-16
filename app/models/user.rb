@@ -8,4 +8,9 @@ class User < ActiveRecord::Base
 
   has_one :profile
   has_many :posts
+
+  def name
+    self.profile.nil? ? self.email : self.profile.name
+  end
+
 end

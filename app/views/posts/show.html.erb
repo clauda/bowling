@@ -1,35 +1,21 @@
-<p id="notice"><%= notice %></p>
+<h1><%= link_to @post.title, @post %></h1>
+
+<%= textilize @post.body %>
+<%= l(@post.published_at) if @post.published_at %>
+
+<p style="color:grey;text-align:right;"><i>por <%= link_to @post.user.name, profiles_path %></i></p>
 
 <p>
-  <b>Title:</b>
-  <%= @post.title %>
+<% @post.categories.each do |c| %>
+  <%= c.name %><br />
+<% end %>
 </p>
+<p><%= @post.comments.count %> Comments</p>
 
-<p>
-  <b>Body:</b>
-  <%= @post.body %>
-</p>
+<div id="comments">
+<%- if @post.comments.any? -%>
+  <%= render @post.comments %>
+<%- end -%>
+</div>
 
-<p>
-  <b>Slug:</b>
-  <%= @post.slug %>
-</p>
-
-<p>
-  <b>User:</b>
-  <%= @post.user %>
-</p>
-
-<p>
-  <b>Draft:</b>
-  <%= @post.draft %>
-</p>
-
-<p>
-  <b>Published at:</b>
-  <%= @post.published_at %>
-</p>
-
-
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+<%= render "comments/form", :post => @post, :comment => Comment.new %>

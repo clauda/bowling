@@ -1,25 +1,14 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>User:</b>
-  <%= @profile.user %>
-</p>
+<h1><%= @profile.name %></h1>
 
-<p>
-  <b>Name:</b>
-  <%= @profile.name %>
-</p>
+  <%= image_tag @profile.photo.url(:thumb), :class => 'img' %>
 
-<p>
-  <b>Description:</b>
+<div class="description">
   <%= @profile.description %>
-</p>
-
-<p>
-  <b>Site:</b>
   <%= @profile.site %>
-</p>
+</div>
 
 
-<%= link_to 'Edit', edit_profile_path(@profile) %> |
-<%= link_to 'Back', profiles_path %>
+<%= link_to t('Edit Your Profile'), edit_profile_path(@profile) %> |
+<%= link_to t('Back'), user_path(current_user) %>

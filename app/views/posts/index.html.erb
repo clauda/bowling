@@ -1,33 +1,10 @@
-<h1>Listing posts</h1>
-
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Body</th>
-    <th>Slug</th>
-    <th>User</th>
-    <th>Draft</th>
-    <th>Published at</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
 <% @posts.each do |post| %>
-  <tr>
-    <td><%= post.title %></td>
-    <td><%= post.body %></td>
-    <td><%= post.slug %></td>
-    <td><%= post.user %></td>
-    <td><%= post.draft %></td>
-    <td><%= post.published_at %></td>
-    <td><%= link_to 'Show', post %></td>
-    <td><%= link_to 'Edit', edit_post_path(post) %></td>
-    <td><%= link_to 'Destroy', post, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+  <h1><%= link_to post.title, post %></h1>
+  <p style="text-align:right;padding:5px;font-size:14px"><%= l(post.published_at) %></p>
+
+  <%= textilize post.body %>
+
+  <p style="color:grey;text-align:right;font-size:14px">por <%= link_to post.user.name, profiles_path %></p>
 <% end %>
-</table>
+<%= will_paginate @posts %>
 
-<br />
-
-<%= link_to 'New Post', new_post_path %>

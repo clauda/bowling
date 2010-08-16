@@ -1,49 +1,30 @@
 class PostsController < ApplicationController
   
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, :only => [:new, :create, :edit, :update, :destroy]
+  before_filter :load_categories
 
-  # GET /posts
-  # GET /posts.xml
   def index
-    @posts = Post.all
+    @posts = Post.published.paginate :page => params[:page]
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @posts }
-    end
+    respond_with @posts
   end
 
-  # GET /posts/1
-  # GET /posts/1.xml
   def show
     @post = Post.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @post }
-    end
+    respond_with @post
   end
 
-  # GET /posts/new
-  # GET /posts/new.xml
   def new
-    @post = Post.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @post }
-    end
+    @post = Post.new(:user => current_user)
   end
 
-  # GET /posts/1/edit
   def edit
     @post = Post.find(params[:id])
   end
 
-  # POST /posts
-  # POST /posts.xml
   def create
     @post = Post.new(params[:post])
+    @post.user = current_user
 
     respond_to do |format|
       if @post.save
@@ -56,8 +37,6 @@ class PostsController < ApplicationController
     end
   end
 
-  # PUT /posts/1
-  # PUT /posts/1.xml
   def update
     @post = Post.find(params[:id])
 
@@ -72,15 +51,24 @@ class PostsController < ApplicationController
     end
   end
 
-  # DELETE /posts/1
-  # DELETE /posts/1.xml
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
-
-    respond_to do |format|
-      format.html { redirect_to(posts_url) }
-      format.xml  { head :ok }
-    end
   end
+  
+  def publish
+    @post = Post.find(params[:id])
+    @post.draft = false
+    @post.published_at = Time.now
+    flash[:notice] = "Published"
+    @post.save
+    respond_with @post
+  end
+
+protected
+  def load_categories
+    @categories = Category.all
+    @category   = Category.find(params[:category_id]) if params[:category_id]
+  end
+
 end

@@ -1,0 +1,18 @@
+<h3>Search</h3>
+
+<%= form_tag posts_path, :method => :get do %>
+  <%= text_field_tag :search, "",
+        :placeholder => "key words here",
+        :size => 30,
+        :type => "search",
+        :class => "search-field" %>
+<% end %>
+
+<h3>Categories</h3>
+
+<ul class="squared">
+  <% @categories.each do |category| %>
+    <li><%= link_to_unless_current category.name, posts_path(:category_id => category.id) %></li>
+  <% end %>
+</ul>
+

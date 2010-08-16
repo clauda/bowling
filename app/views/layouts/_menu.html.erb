@@ -1,0 +1,11 @@
+<div id="menu">
+	<ul>
+    <% if current_user %>
+    	<li><%= link_to "Dashboard", dashboard_path %></li>  
+      <li><%= link_to t("Users"), users_path %></li>  
+    <% else %>
+    	<li><%= link_to "Home", root_path %></li>  
+      <li><%= link_to t("Team"), profiles_path %></li>  
+    <% end %>
+  </ul>
+</div><!-- menu -->

@@ -1,29 +1,13 @@
-<h1>Listing profiles</h1>
-
-<table>
-  <tr>
-    <th>User</th>
-    <th>Name</th>
-    <th>Description</th>
-    <th>Site</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<h1>Team</h1>
 
 <% @profiles.each do |profile| %>
-  <tr>
-    <td><%= profile.user %></td>
-    <td><%= profile.name %></td>
-    <td><%= profile.description %></td>
-    <td><%= profile.site %></td>
-    <td><%= link_to 'Show', profile %></td>
-    <td><%= link_to 'Edit', edit_profile_path(profile) %></td>
-    <td><%= link_to 'Destroy', profile, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+    <h2><%= profile.name %></h2>
+    <%= image_tag profile.photo.url(:thumb), :class => 'img' %> 
+    <div class="description">
+      <%= textilize profile.description %>
+      <p><%= profile.site %></p>
+    </div>
 <% end %>
-</table>
 
 <br />
 
-<%= link_to 'New Profile', new_profile_path %>

@@ -1,14 +1,19 @@
 Bowling::Application.routes.draw do
   
+  match "dashboard", :to => "dashboard#index"
+
   root :to => "posts#index"
 
   devise_for :users do
     get "/login" => "devise/sessions#new"
     get "/logout" => "devise/sessions#destroy"
   end
-
-  resources :posts
+  resources :users
   resources :profiles
+  resources :posts do
+    resources :comments
+  end
+  match 'publish/:id', :to => "posts#publish", :as => "publish"
   resources :categories
 
 
