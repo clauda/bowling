@@ -42,7 +42,7 @@ a.redlink:hover {color:#111; }
 	color:#b2b2b2;
 	padding:5px 0 0 0;
 }
-
+.right { float: right; margin-top: -30px; position: relative; }
 #info .right {
 	float:right;
 }
@@ -102,6 +102,19 @@ a.redlink:hover {color:#111; }
 	background:url(../images/logout.png) 0px 3px no-repeat;
 }
 
+#column1 {
+  width: 65%;
+  float: left;
+  text-align: justify;
+  margin: 20px 10px 40px;
+}
+
+#column2 { 
+  width: 25%;
+  float: left;
+  text-align: justify;
+  margin: 20px 10px 40px;
+}
 
 #menu {	
 	background:url(../images/menu.png) left top no-repeat;
@@ -242,7 +255,7 @@ a.redlink:hover {color:#111; }
     -webkit-box-shadow: 3px 3px 3px #aaaaaa;
 }
 
-.notice {
+.sucess {
 	color:#fff;
 	text-shadow:1px 1px #8e7703;
 	padding-left:33px;
@@ -256,7 +269,7 @@ a.redlink:hover {color:#111; }
 	background:url(../images/error-trans.png) 9px 9px no-repeat #f15e47;
 }
 
-.success {
+.notice {
 	color:#fff;
 	text-shadow:1px 1px #446326;
 	padding-left:33px;
@@ -328,7 +341,24 @@ input.submit {
 input.submit:hover {
 	opacity:0.9;
 }
-
+fieldset { 
+	padding:10px;
+    -moz-box-shadow:0 0 10px #EEEEEE inset;
+    border:1px solid #CCCCCC;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	border-radius:5px; 
+        
+}
+legend {
+    color:#656565;
+    display:block;
+    font-family:Georgia,"Times New Roman",Times,serif;
+    font-size:10px;
+    font-weight:normal;
+    text-transform:uppercase;
+    padding: 0 5px;
+}
 
 /* Custom file input */
 

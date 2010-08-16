@@ -1,47 +1,54 @@
-<%= form_for(@post) do |f| %>
-  <% if @post.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+<div id="column1">
 
-      <ul>
-      <% @post.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+  <%= form_for(@post) do |f| %>
+    <% if @post.errors.any? %>
+      <div id="error_explanation">
+        <ul>
+        <% @post.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :title %>
+      <%= f.text_field :title %>
     </div>
+    <div class="field">
+      <%= f.label :body %>
+      <%= f.text_area :body, :id => "wysiwyg" %>
+    </div>
+</div>
+<div id="column2">
+    <div class="field">
+      <%= f.label :published_at %>
+      <%= f.text_field :published_at, :type => "date" %>
+    </div>
+    <div class="field">
+      <%= f.label :draft %>
+      <%= f.check_box :draft, :class => "checkbox" %>
+    </div>
+    <div class="field">
+      <%= f.label :slug %>
+      <%= f.text_field :slug %>
+    </div>
+    <br />
+    <div class="field">
+      <fieldset>
+        <legend>Categorias</legend>
+        <%- @categories.each do |c| -%>
+          <%= label_tag c.name %> <%= check_box_tag "post[category_ids][]", c.id, @post.categories.include?(c), :class => "checkbox" %> 
+        <%- end -%>
+      </fieldset>
+    </div>
+  <br />
+  <br />
+</div>
+
+    <div class="actions">
+      <%= f.submit t("Save"), :class => "submit" %>
+    </div>
+  <br />
   <% end %>
 
-  <div class="field">
-    <%= f.label :title %>
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :body %>
-    <%= f.text_area :body, :id => "wysiwyg" %>
-  </div>
-  <div class="field">
-    <%= f.label :slug %>
-    <%= f.text_field :slug %>
-  </div>
-  <div class="field">
-    <%= f.label :draft %>
-    <%= f.check_box :draft, :class => "checkbox" %>
-  </div>
-  <div class="field">
-    <%= f.label :published_at %>
-    <%= f.text_field :published_at, :type => "date" %>
-  </div>
-<br />
-  <div class="field">
-    <%- @categories.each do |c| -%>
-      <%= label_tag c.name %> <%= check_box_tag "post[category_ids][]", c.id, @post.categories.include?(c), :class => "checkbox" %> 
-    <%- end -%>
-  </div>
-<br />
-<br />
-
-  <div class="actions">
-    <%= f.submit t("Save"), :class => "submit" %>
-  </div>
-<br />
-<% end %>

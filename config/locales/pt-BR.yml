@@ -11,6 +11,7 @@ pt-BR:
   published: "Publicado"
   publish: "Publicar"
   Save: "Salvar"
+  About: "Sobre"
 
   attributes:
     name: "Nome"

@@ -1,6 +1,7 @@
 Bowling::Application.routes.draw do
   
   match "dashboard", :to => "dashboard#index"
+  match "about", :to => "dashboard#about"
 
   root :to => "posts#index"
 

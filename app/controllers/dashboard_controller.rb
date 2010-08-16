@@ -7,4 +7,7 @@ class DashboardController < ApplicationController
     @categories = Category.all
   end
 
+  def about
+  end
+
 end
