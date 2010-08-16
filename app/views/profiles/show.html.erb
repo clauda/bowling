@@ -1,12 +1,12 @@
 <p id="notice"><%= notice %></p>
 
-<h1><%= @profile.name %></h1>
 
   <%= image_tag @profile.photo.url(:thumb), :class => 'img' %>
 
 <div class="description">
-  <p><%= @profile.description %></p>
-  <p><%= @profile.site %></p>
+  <h1><%= @profile.name %></h1>
+  <p class="intro"><%= @profile.description %></p><br />
+  <h3><%= link_to @profile.site, @profile.site %></h3>
 </div>
 <div class="description">
   <%= link_to t('Edit Your Profile'), edit_profile_path(@profile) %> |

@@ -279,10 +279,12 @@ a.redlink:hover {color:#111; }
 	font-size:38px;
     color:#333333;
 	margin:30px 0;
-	height:36px;
 	line-height:36px;
 }
-
+.intro { 
+    font-family:"Yanone Kaffeesatz",'SketchRockwellRegular',serif;
+    text-shadow:0 1px 0 #FFFFFF; font-weight: 0;
+    font-size: 34px; margin: 0; color:#333333; }
 
 .graph {	
 	float:left;
@@ -375,7 +377,7 @@ input.file {
 	background:#fff;
 }
 
-.img { border: 2px solid #FFF; position: absolute; margin: 5px; }
+.img { border: 2px solid #FFF; position: absolute; margin: 30px 5px; }
 .description { width: 85%; padding: 5px; float: right; }
 .label { display: inline }
 .comment {
