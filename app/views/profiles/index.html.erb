@@ -8,4 +8,13 @@
   </div>
 <% end %>
 <br />
+<% content_for :foot do %>
+  <% tag_cloud(Post.tag_counts_on(:tags), %w(css1 css2 css3 css4)) do |tag, css_class| %>
+    <%= link_to tag.name, tag_path(tag.name), :class => css_class %>
+  <% end %>
 
+  <% Category.all.each do |c| %>
+    <%= link_to c.name, posts_path, :class => "css2" %>
+  <% end %>
+  <%#TODO: filtro de posts por categoria e por tag %>
+<% end %>

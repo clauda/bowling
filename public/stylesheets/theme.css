@@ -238,6 +238,7 @@ a.redlink:hover {color:#111; }
 	width:920px;
 	float:left;
 	padding:10px;
+    min-height: 400px;
 }
 
 

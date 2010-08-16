@@ -1,1 +1,17 @@
 <h1>About Us</h1>
+
+<p class="intro" style="color:#333">
+  Somos uma empresa de <b>desenvolvimento</b> localizada em <b>Natal/RN</b>. Entusiastas do <b>Ruby on Rails</b> e seguidores das melhores práticas das <b>Metodologias Ágeis.</b> 
+</p>
+
+
+<% content_for :foot do %>
+  <% tag_cloud(Post.tag_counts_on(:tags), %w(css1 css2 css3 css4)) do |tag, css_class| %>
+    <%= link_to tag.name, tag_path(tag.name), :class => css_class %>
+  <% end %>
+
+  <% Category.all.each do |c| %>
+    <%= link_to c.name, posts_path, :class => "css2" %>
+  <% end %>
+  <%#TODO: filtro de posts por categoria e por tag %>
+<% end %>
