@@ -65,6 +65,11 @@ class PostsController < ApplicationController
     respond_with @post
   end
 
+  def tags
+    @posts = Post.tagged_with(params[:id])
+    render "index"
+  end
+
 protected
   def load_categories
     @categories = Category.all

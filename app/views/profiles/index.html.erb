@@ -1,13 +1,11 @@
 <h1>Team</h1>
-
 <% @profiles.each do |profile| %>
+  <div class="description">
     <%= image_tag profile.photo.url(:thumb), :class => 'img' %> 
-    <div class="description">
-      <h1><%= profile.name %></h1>
-      <p class="intro"><%= profile.description %></p><br />
-      <h3><%= link_to profile.site, profile.site  %></h3>
-    </div>
+    <h1><%= profile.name %></h1>
+    <p class="intro"><%= profile.description %></p><br />
+    <h3 class="oright"><%= link_to profile.site, profile.site  %></h3>
+  </div>
 <% end %>
-
 <br />
 

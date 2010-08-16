@@ -17,6 +17,7 @@ Bowling::Application.routes.draw do
   match 'publish/:id', :to => "posts#publish", :as => "publish"
   resources :categories
 
+  match "tag", :to => "posts#tags"
 
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'

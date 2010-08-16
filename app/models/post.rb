@@ -2,7 +2,7 @@ class Post < ActiveRecord::Base
   default_scope order('published_at DESC')
   cattr_reader :per_page
   @@per_page = 10
-
+  acts_as_taggable
 
   belongs_to :user
   has_and_belongs_to_many :categories, :class_name => "Category"
