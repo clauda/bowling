@@ -5,12 +5,15 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.published.paginate :page => params[:page]
-
     respond_with @posts
   end
 
   def show
-    @post = Post.find(params[:id])
+    if params[:id]
+      @post = Post.find(params[:id])
+    else    
+      @post = Post.find_by_slug(params[:slug])
+    end
     respond_with @post
   end
 

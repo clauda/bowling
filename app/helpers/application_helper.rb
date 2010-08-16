@@ -1,6 +1,8 @@
 module ApplicationHelper
   include TweetButton
 
+  TweetButton.default_tweet_button_options = {:via => nil}
+
   def flash_message
     messages = ""
     [:notice, :info, :warning, :error].each do|type|

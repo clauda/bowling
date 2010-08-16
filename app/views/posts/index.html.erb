@@ -1,13 +1,10 @@
 <% @posts.each do |post| %>
-  <h1><%= link_to post.title, post %></h1>
+  <h1><%= link_to post.title, permalink_path(post.slug) %></h1>
   <p style="text-align:right;padding:5px;font-size:14px"><%= l(post.published_at) %></p>
-
   <%= textilize post.body %>
-
   <p style="color:grey;text-align:right;font-size:14px">por <%= link_to post.user.name, profiles_path %></p>
 <% end %>
 <%= will_paginate @posts %>
-
 
 <% content_for :foot do %>
   <% tag_cloud(Post.tag_counts_on(:tags), %w(css1 css2 css3 css4)) do |tag, css_class| %>

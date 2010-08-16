@@ -9,11 +9,14 @@ Bowling::Application.routes.draw do
     get "/login" => "devise/sessions#new"
     get "/logout" => "devise/sessions#destroy"
   end
+
   resources :users
   resources :profiles
   resources :posts do
     resources :comments
   end
+
+  match ':slug/', :to => "posts#show", :as => "permalink"
   match 'publish/:id', :to => "posts#publish", :as => "publish"
   resources :categories
 

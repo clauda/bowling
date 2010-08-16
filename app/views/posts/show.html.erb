@@ -1,4 +1,4 @@
-<h1><%= link_to @post.title, @post %></h1>
+<h1><%= link_to @post.title, permalink_path(@post.slug) %></h1>
 <p style="text-align:right;padding:5px;font-size:14px"><%= l(@post.published_at) if @post.published_at %></p>
 
 <%= textilize @post.body %>
