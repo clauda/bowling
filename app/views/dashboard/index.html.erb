@@ -2,9 +2,8 @@
 <span class="oright"><%= link_to image_tag('add.png'), new_post_path %></span>
 <%= render :partial => "posts/list" %>
 
-
 <h1>Categories</h1>
-<div style="width:400px">
+<div style="width:450px">
 <table>
   <tr>
     <th>Name</th>
@@ -13,17 +12,18 @@
 
 <% @categories.each do |category| %>
   <tr>
-    <td><%= category.name %></td>
+    <td><%= link_to category.name, filter_path(category.name) %></td>
     <td><%= category.posts.size %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
-<%= form_for Category.new do |f| %>
-  <div class="field" style="width:100%">
-    <%= f.label 'Nova Categoria' %>
-    <%= f.text_field :name %> <%= f.submit t("Save"), :class => "submit" %>
+<%= form_for(Category.new, :method => :post) do |f| %>
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <%= f.submit t("Save"), :class => "submit" %>
   </div>
 <% end %>
 </div>

@@ -16,11 +16,10 @@ Bowling::Application.routes.draw do
     resources :comments
   end
 
-  match ':slug/', :to => "posts#show", :as => "permalink"
   match 'publish/:id', :to => "posts#publish", :as => "publish"
   resources :categories
-
-  match "tag", :to => "posts#tags"
+  match "category/:name", :to => "categories#posts_by_categories", :as => "filter"
+  match "tag/:name", :to => "posts#tags", :as => "tag"
 
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
@@ -75,4 +74,7 @@ Bowling::Application.routes.draw do
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id(.:format)))'
+  match ':slug/', :to => "posts#permalink", :as => "permalink"
+
 end
+

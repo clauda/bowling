@@ -32,12 +32,11 @@ a.redlink:hover {color:#111; }
 }
 
 #top {
-	background:url(../images/top.png) top center repeat-x;
 	height:500px;
 }
 
 #info {
-	height:25px;
+	height:35px;
 	font-size:11px;
 	color:#b2b2b2;
 	padding:5px 0 0 0;
@@ -279,7 +278,7 @@ a.redlink:hover {color:#111; }
 .mainbar h1 {
 	font-size:38px;
     color:#333333;
-	margin:30px 0;
+	margin:30px 0 10px;
 	line-height:36px;
 }
 .intro { 
@@ -407,7 +406,6 @@ pre {
 
 .comment .author {
   overflow:hidden;
-  height: 60px;
 }
 
 .comment .author .avatar img{

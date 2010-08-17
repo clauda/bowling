@@ -11,7 +11,7 @@
   <% end %>
 
   <% Category.all.each do |c| %>
-    <%= link_to c.name, posts_path, :class => "css2" %>
+    <%= link_to c.name, filter_path(c.name), :class => "css2" %>
   <% end %>
   <%#TODO: filtro de posts por categoria e por tag %>
 <% end %>

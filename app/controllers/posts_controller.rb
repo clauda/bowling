@@ -1,20 +1,22 @@
 class PostsController < ApplicationController
   
-  before_filter :authenticate_user!, :only => [:new, :create, :edit, :update, :destroy]
+  before_filter :authenticate_user!, :only => [:new, :create, :edit, :update, :destroy, :show]
   before_filter :load_categories
 
   def index
     @posts = Post.published.paginate :page => params[:page]
+    @posts = Post.search(params[:search]).paginate(:page => params[:page]) if params[:search].present?
     respond_with @posts
   end
 
   def show
-    if params[:id]
-      @post = Post.find(params[:id])
-    else    
-      @post = Post.find_by_slug(params[:slug])
-    end
+    @post = Post.find(params[:id])
     respond_with @post
+  end
+
+  def permalink    
+    @post = Post.find_by_slug(params[:slug])
+    render "show"
   end
 
   def new
@@ -28,7 +30,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(params[:post])
     @post.user = current_user
-
+    @post.tag_list << params[:post][:tag_list].split(",") if params[:post][:tag_list]
     respond_to do |format|
       if @post.save
         format.html { redirect_to(@post, :notice => 'Post was successfully created.') }
@@ -42,9 +44,10 @@ class PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
-
     respond_to do |format|
       if @post.update_attributes(params[:post])
+        @post.tag_list << params[:post][:tag_list].split(",") if params[:post][:tag_list]
+        @post.save
         format.html { redirect_to(@post, :notice => 'Post was successfully updated.') }
         format.xml  { head :ok }
       else
@@ -69,7 +72,7 @@ class PostsController < ApplicationController
   end
 
   def tags
-    @posts = Post.tagged_with(params[:id])
+    @posts = Post.tagged_with(params[:name]).paginate(:page => params[:page])
     render "index"
   end
 

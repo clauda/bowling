@@ -3,7 +3,7 @@
   <div class="description">
     <%= image_tag profile.photo.url(:thumb), :class => 'img' %> 
     <h1><%= profile.name %></h1>
-    <p class="intro"><%= profile.description %></p><br />
+    <p style="width:85%;margin-left:15%"><%= profile.description %></p><br />
     <h3 class="oright"><%= link_to profile.site, profile.site  %></h3>
   </div>
 <% end %>

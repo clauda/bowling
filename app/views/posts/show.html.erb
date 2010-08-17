@@ -1,17 +1,18 @@
 <h1><%= link_to @post.title, permalink_path(@post.slug) %></h1>
-<p style="text-align:right;padding:5px;font-size:14px"><%= l(@post.published_at) if @post.published_at %></p>
+<span class="oright" style="margin-left:10px;"><%= tweet_button %></span>
+<p style="text-align:right;padding:10px;font-size:14px;color:#656565"><%= l(@post.published_at) if @post.published_at %></p>
 
 <%= textilize @post.body %>
 
-<p style="color:grey;text-align:right;"><i>por <%= link_to @post.user.name, profiles_path %></i></p>
- <%= tweet_button %>
-
-<p>
-<% @post.categories.each do |c| %>
-  <%= c.name %><br />
-<% end %>
+<p style="color:grey;text-align:right;"><%= link_to @post.user.name, profiles_path %></p>
+<br />
+  <span class="oright">
+    <% @post.categories.each do |c| %>
+      <i><%= link_to c.name, category_path(c.name) %></i>, 
+    <% end %>
+  </span>
 </p>
-<p><%= @post.comments.count %> Comments</p>
+<%#= @post.comments.count %>
 
 <div id="comments">
 <%- if @post.comments.any? -%>
@@ -28,7 +29,7 @@
   <% end %>
 
   <% Category.all.each do |c| %>
-    <%= link_to c.name, posts_path, :class => "css2" %>
+    <%= link_to c.name, filter_path(c.name), :class => "css2" %>
   <% end %>
   <%#TODO: filtro de posts por categoria e por tag %>
 <% end %>
