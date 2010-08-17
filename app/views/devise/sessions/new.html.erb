@@ -1,31 +1,14 @@
-<div class="block small center login">
-			
-	<div class="block_content">
-		
-		<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-			<p>
-				<%= f.label :email %>
-				<%= f.text_field :email %>
-			</p>
-			
-			<p>
-				<%= f.label :password %>
-				<%= f.password_field :password %>
-			</p>
-			
-			<p>
-				<%= f.submit "Login", :class => "submit" %>
-			</p>
-			<p>
-      <% if devise_mapping.rememberable? -%> 
-				  <%= f.check_box :remember_me, :class => "checkbox" %>
-          <%= f.label :remember_me %>
-		    <% end %> 
-      </p>
-      <%= render :partial => "devise/shared/links" %>
-		<% end %>
-		
-	</div>		
-		
-</div>		
-
+<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+	<%= f.label :email %>
+	<%= f.text_field :email %><br /><br />
+	<%= f.label :password %>
+	<%= f.password_field :password %><br /><br />
+	<%= f.submit "Login", :class => "submit" %>
+  <% if devise_mapping.rememberable? -%>
+    <%= f.check_box :remember_me, :class => "checkbox" %>
+    <%= f.label :remember_me %>
+  <% end %> 
+  <br />
+  <br />
+  <%= render :partial => "devise/shared/links" %>
+<% end %>

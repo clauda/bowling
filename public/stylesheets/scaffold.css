@@ -13,7 +13,6 @@ label { display: inline }
 	padding-bottom: 5px;
 	margin-bottom: 25px;
 	clear: both;
-	background: #fff;
 }
 
 
@@ -81,9 +80,8 @@ label { display: inline }
 
 .block .block_content {
 	overflow: hidden;
-	background: #fff;
 	padding: 10px 20px 0;
-	}
+}
 
 .block .block_content ul {
 	padding-left: 15px;
@@ -116,7 +114,6 @@ label { display: inline }
 .block.small.right { float: right; clear: none; }
 
 .block.small .block_content { 
-    background: #fff;     
     -moz-border-radius: 10px;
     -webkit-border-radius: 10px;
     border-radius: 10px;
@@ -131,8 +128,6 @@ label { display: inline }
 /* Login block */
 
 .block.small.center.login {
-	width: 330px;
-	background-color: #fff;
 	margin-top: 100px;
 	margin-bottom: 100px;
 	padding-bottom: 5px;

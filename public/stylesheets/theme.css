@@ -65,9 +65,6 @@ a.redlink:hover {color:#111; }
 }
 
 .login {
-	width:240px;
-	float:right;
-	margin:5px 0 0 0;
 }
 
 .login em{
@@ -88,27 +85,27 @@ a.redlink:hover {color:#111; }
 	padding:0 0 0 16px;
 }
 
-.nav a.inbox{
+.nav a.inbox {
 	background:url(../images/inbox.png) 0px 4px no-repeat;
 }
 
-.nav a.profile{
+.nav a.profile {
 	background:url(../images/profile.png) 0px 3px no-repeat;
 	padding:0 0 0 10px;
 }
 
-.nav a.logout{
+.nav a.logout {
 	background:url(../images/logout.png) 0px 3px no-repeat;
 }
 
 #column1 {
-  width: 65%;
+  width: 77%;
   float: left;
   text-align: justify;
 }
 
 #column2 { 
-  width: 25%;
+  width: 22%;
   float: left;
   text-align: justify;
 }
@@ -165,13 +162,13 @@ a.redlink:hover {color:#111; }
 }
 
 
-.leftbar {
+.rbar {
 	width:235px;
-	float:left;
+	float:right;
 	margin:0 0 0 0px;
 }
 
-.leftbar h3{
+.rbar h3{
 	height:51px;
 	line-height:50px;
 	background:url(../images/boxtop.png) left top no-repeat;
@@ -268,6 +265,10 @@ a.redlink:hover {color:#111; }
 	background:url(../images/error-trans.png) 9px 9px no-repeat #f15e47;
 }
 
+.alert {
+	color: #f15e47;
+}
+
 .notice {
 	color:#fff;
 	text-shadow:1px 1px #446326;
@@ -350,8 +351,9 @@ fieldset {
 	-moz-border-radius:5px;
 	-webkit-border-radius:5px;
 	border-radius:5px; 
-        
 }
+.cb { margin: 20px 0 0; }
+.cb label { display: inline; }
 legend {
     color:#656565;
     display:block;

@@ -7,7 +7,14 @@
 </head>
 <body>
 	<div class="wrapper">
-    <%= yield %>
+    <div class="block small center login">
+	    <div class="block_content">
+        <%- flash.each do |name, msg| -%>
+          <%= content_tag :div, msg, :class => name if msg.is_a?(String) %><br />
+        <%- end -%>
+        <%= yield %>
+    	</div>
+	  </div>
 	</div>
 </body>
 </html>
