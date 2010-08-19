@@ -13,7 +13,7 @@
       <td><%= u.name %></td>
       <td><%= u.email %></td>
       <td><%= u.posts.size %></td>
-      <td><%= link_to image_tag('edit.png'), edit_profile_path(u.profile) %></td>
+      <td><%= link_to image_tag('edit.png'), edit_profile_path(u.profile) if u.profile %></td>
     </tr>
   <% end %>
   </table>
