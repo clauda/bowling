@@ -1,4 +1,4 @@
-<%= image_tag @profile.photo.url(:thumb), :class => 'img' %>
+<%= image_tag @profile.photo, :class => 'img' if @profile.photo %>
 <div class="description">
   <h1><%= @profile.name %></h1>
   <p class="intro"><%= @profile.description %></p><br />

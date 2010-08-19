@@ -14,7 +14,7 @@ gem "mysql"
 # gem 'capistrano'
 
 gem 'devise', '>=1.1.rc1'
-gem 'paperclip'
+# gem 'paperclip'
 gem 'will_paginate', '3.0.pre2'
 gem 'RedCloth', '4.2.3'
 gem "tweet-button"
