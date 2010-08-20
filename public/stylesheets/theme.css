@@ -396,6 +396,8 @@ legend {
     padding: 0 5px;
 }
 
+.logos { margin: 0 10px; padding: 0 10px; }
+
 /* Custom file input */
 
 .fileupload {	position: relative;	}
@@ -615,12 +617,27 @@ ul { list-style: none; }
     width:960px;
     padding: 20px;
 }
-#footer a { color: #CCC;  }
+#footer a { color: #777;  }
+
+#footer section {
+    display:inline;
+    float:left;
+    width:30%;
+    height: 160px;
+}
+#footer section p { text-shadow: 0 0 0 #383838; font-size: 10px; color: gray;  }
+
+#footer li a {
+    display:block;
+    overflow:hidden;
+    padding:3px 0;
+    text-decoration:none;
+    white-space:pre;
+}
+
 #copyright {
     padding: 10px;
-    height:55px;
     margin: auto;
-    margin-bottom:-10px;
     width:960px;
 }
 ul.tabs {

@@ -33,15 +33,20 @@
   </div><!-- end wrap -->
 
     <div id="footer">
-
       <div id="foot-center">
         <%= yield :foot %>
-      </div>
 
+        <section>
+          <p>Lorem inpum dolor</p>
+        </section>
+
+      </div>
       <div id="copyright">
-        <%= link_to "Khronus Soluções", "#" %>	
+        <%= link_to image_tag('logob.png'), "http://khronus.com.br", :class => 'logos' %>	
+        <%= link_to image_tag('rails.png'), "http://rails.org", :class => 'logos' %>	
+        <%= link_to image_tag('github.png'), "http://github.com", :class => 'logos' %>	
+        <%= link_to image_tag('heroku.png'), "http://heroku.com", :class => 'logos' %>	
       </div>
-
     </div><!--/footer-->
 
 </div><!-- end top -->
