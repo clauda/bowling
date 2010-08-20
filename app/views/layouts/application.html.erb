@@ -9,8 +9,6 @@
     <!-- Site Specific CSS -->
     <%= stylesheet_link_tag "theme", :media => "screen, projection" %>
     <!--[if IE]><link rel="stylesheet" href="css/frame/ie.css" type="text/css" media="screen, projection"><![endif]-->
-    <%= javascript_include_tag "jquery.tools.min", "application" %>
-    <%= javascript_include_tag "jquery.wysiwyg" %>
     <%= csrf_meta_tag %>
   </head>
 
@@ -19,12 +17,11 @@
 <div id="top">
 	<div class="wrap">
     	
-    <div id="info">        	
-    	<span class="right"><div class="nav"><% if current_user %><%= link_to t("Profile"), user_path(current_user), :class => "profile" %> 
-      <%= link_to t("Logout"), logout_path, :class => "logout" %><% end %></div></span>	
-    </div><!-- end info -->
-    
-    <%= render :partial => "layouts/menu" %>
+    <div id="header">
+        <%= image_tag 'logo.png' %>       	
+    </div><!-- end header -->
+
+    <%= render :partial => "shared/menu" %>
     <div class="contentcont">
       <div class="mainbar">
           <%= flash_message %>

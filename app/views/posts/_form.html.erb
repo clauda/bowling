@@ -1,52 +1,61 @@
-<div id="column1">
-  <%= form_for(@post) do |f| %>
-    <% if @post.errors.any? %>
-      <div id="error_explanation">
-        <ul>
-        <% @post.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-        </ul>
-      </div>
-    <% end %>
+<%= form_for(@post) do |f| %>
+  <div id="body">
+    <%= error_messages_for @post %>
     <div class="field">
-      <%= f.label :title %>
-      <%= f.text_field :title %>
+      <%= f.text_field :title, :class => "title" %>
     </div>
     <div class="field">
-      <%= f.label :body %>
       <%= f.text_area :body, :id => "wysiwyg" %>
     </div>
-    <div class="field">
-      <%= f.label :slug %>
-      <%= f.text_field :slug %>
-    </div>
-</div>
-<div id="column2">
-    <div class="field">
-      <%= f.label :published_at %>
-      <%= f.text_field :published_at, :type => "date" %>
-    </div>
-    <div class="cb">
-      <%= f.check_box :draft, :class => "checkbox" %>
-      <%= f.label :draft %>
-    </div>
-    <div class="cb">
-      <fieldset>
-        <legend>Categorias</legend>
-        <%- @categories.each do |c| -%>
-           <%= check_box_tag "post[category_ids][]", c.id, @post.categories.include?(c), :class => "checkbox" %> <%= label_tag c.name %> <br />
-        <%- end -%>
-      </fieldset>
-    </div>
-    <div class="field">
-      <%= f.label :tags %>
-      <%= f.text_field :tag_list %> <br /> separados com vírgulas
-    </div>
-</div>
-
-  <div class="actions">
-    <%= f.submit t("Save"), :class => "submit" %> or <%= link_to 'cancel', posts_path %>
   </div>
+
+  <div id="sidebar">
+
+    <div class="section">
+      <div class="in">
+        <h3><%= f.label :published_at %></h3>
+        <div class="field">
+          <%= f.text_field :published_at, :type => "date" %>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="in">
+        <%= f.check_box :draft %>
+        <%= f.label :draft %>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="in">
+        <div class="field">
+          <%= f.label :slug %>
+          <%= f.text_field :slug, :size => 24 %>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="in">
+        <h3>Categorias</h3>
+        <ul class="categories-field">
+          <%- @categories.each do |c| -%>
+            <li><%= check_box_tag "post[category_ids][]", c.id, @post.categories.include?(c) %> <%= c.name %></li>
+          <%- end -%>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="in">
+        <%= f.label :tags %>
+        <%= f.text_field :tag_list, :size => 20 %> <br /> separados com vírgulas
+      </div>
+    </div>
+    <br />
+  </div>
+
+  <div id="body"><%= f.submit t("Save"), :class => "button" %> or <%= link_to 'cancel', admin_post_path(@post) %></div>
   <% end %>
 

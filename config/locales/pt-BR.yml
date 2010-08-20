@@ -13,10 +13,20 @@ pt-BR:
   Save: "Salvar"
   About: "Sobre"
   cancel: "cancelar"
+  Edit: "Editar"
+
+  empty: "Não temos nenhum %{model} ainda."
+  confirm: Tem certeza?
+  edit: Editar
+  destroy: Apagar
+  cancel: Cancelar
+  new: Criar %{model}
+  error_message_header: "%{count} erro(s) impediram este %{model} de ser gravado:"
 
   attributes:
     name: "Nome"
     password: "Senha"
+    published_at: "Publicado em"
 
   # formatos de data e hora
 

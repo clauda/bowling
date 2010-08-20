@@ -5,6 +5,7 @@ class CategoriesController < ApplicationController
   def posts_by_categories
     @category = Category.find_by_name(params[:name])
     @posts = @category.posts.paginate(:page => params[:page])
+    @categories = Category.all
     render "posts/index"
   end
 
@@ -12,6 +13,7 @@ class CategoriesController < ApplicationController
     @category = Category.new(params[:category])
     flash[:alert] = 'Fail!' unless @category.save
     redirect_to(dashboard_path)
+    render :layout => 'admin'
   end
  
 end

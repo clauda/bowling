@@ -1,23 +1,15 @@
-<h1><%= t("Users") %></h1>
+<h2><%= t("Users") %></h2>
+
 <div class="block">
-  <table>
-    <tr>
-      <th>Name</th>
-      <th>Email</th>
-      <th>Posts</th>
-      <th></th>
-    </tr>
+  <ul class="list">
+    <% @users.each do |u| %>
+      <%= content_tag_for :li, u, :class => cycle(:odd, :even) do %>
+        <%= u.name %>
 
-  <% @users.each do |u| %>
-    <tr>
-      <td><%= u.name %></td>
-      <td><%= u.email %></td>
-      <td><%= u.posts.size %></td>
-      <td><%= link_to image_tag('edit.png'), edit_profile_path(u.profile) if u.profile %></td>
-    </tr>
-  <% end %>
-  </table>
-
+        <div class="right"><%= u.posts.size %></div>
+      <% end %>
+    <% end %>
+  </ul>
   <br />
 
 </div>

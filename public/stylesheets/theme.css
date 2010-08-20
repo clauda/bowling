@@ -17,15 +17,21 @@ body {
 
 a {
 	text-decoration:none;
-	color:#363636;
+	color:#000;
 }
 
-p { color: #363636; text-align: justify; text-indent: 1em; font-size: 1.4em; text-shadow: 1px 1px 0 #FFFFFF; }
+p { color: #363636; text-align: justify; text-indent: 1em; font-size: 1.4em; text-shadow: 1px 1px 0 #FFFFFF; letter-spacing: 1px; }
 a:hover {	color:#333; }
 a.redlink {	color:#5a140c; }
 h2, h1 { font-family:"Yanone Kaffeesatz", 'SketchRockwellRegular', serif; font-weight:900;text-shadow:0 1px 0 #FFFFFF; }
 a.redlink:hover {color:#111; }
-
+.published_at {
+  font-size:12px;
+  color: gray;
+  text-align: right;
+  padding:5px;margin-bottom:5px;
+  letter-spacing: 1px;
+}
 .wrap {
 	width:940px;
 	margin:0px auto;
@@ -47,8 +53,8 @@ a.redlink:hover {color:#111; }
 }
 
 #header {
-	height:30px;
-	padding:10px 0 0 0;
+	height:50px;
+	padding:25px 0 0 0;
 }
 
 #header h2 {
@@ -127,6 +133,20 @@ a.redlink:hover {color:#111; }
 	text-shadow:-2px -2px #000;
 }
 
+#rodape a {
+    color: #999;
+}
+#rodape {
+    color: #666;
+    border: 1px solid #DDDDDD;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	border-radius:5px;
+}
+#rodape span { width: 20%; float: left; }
+.clearfix {
+    display:block;
+}
 #menu ul li{
 	display:block;
 	float:left;
@@ -182,9 +202,9 @@ a.redlink:hover {color:#111; }
 }
 
 .box {
-	background:url(../images/boxcont.png) repeat-y;
-	padding:22px;
-	margin:0 0 15px 0;
+	background:url(../images/boxcont.png) repeat;
+	padding: 16px;
+	margin: 0 0 15px 0;
 }
 
 .box ul{
@@ -279,7 +299,7 @@ a.redlink:hover {color:#111; }
 .mainbar h1 {
 	font-size:38px;
     color:#333333;
-	margin:30px 0 10px;
+	margin:10px 0 10px;
 	line-height:36px;
 }
 .intro { 
@@ -298,10 +318,8 @@ input, textarea {
 	-moz-border-radius:5px;
 	-webkit-border-radius:5px;
 	border-radius:5px;
-	font:14px Arial, Helvetica, sans-serif;
 	margin:0px;
 	background:#fff;
-    width: 90%;
 }
 
 input:focus, textarea:focus {
@@ -340,7 +358,21 @@ input.submit {
     width:85px;
 	padding:0px;
 }
-
+.awesome {
+    -moz-border-radius:5px 5px 5px 5px;
+    -moz-box-shadow:0 1px 3px #999999;
+    background:url("../images/aoverlay.png") repeat-x scroll 0 0 #222222;
+    color:#FFFFFF;
+    cursor:pointer;
+    display:inline-block;
+    font-size:13px;
+    font-weight:bold;
+    line-height:1;
+    margin:10px;
+    padding:5px 10px 6px;
+    text-decoration:none;
+    text-shadow:0 -1px 1px #222222;
+}
 input.submit:hover {
 	opacity:0.9;
 }
@@ -392,7 +424,7 @@ pre {
     margin:20px 0;
     padding:10px;
 }
-.img { border: 2px solid #FFF; float:left; margin: 30px 20px 0 0; width: 160px; height: 150px; overflow: hidden }
+.img { border: 2px solid #FFF; float:left; margin: 0 20px 0 0; width: 120px; height: 120px; overflow: hidden }
 .description { padding: 10px; }
 .label { display: inline }
 
@@ -410,7 +442,7 @@ pre {
   overflow:hidden;
 }
 
-.comment .author .avatar img{
+.comment .author .avatar img {
   border: 2px solid #e2e2e2;
   padding: 5px;
 }
@@ -419,10 +451,13 @@ pre {
   float: left;
 }
 
+.comment .author .meta .name {
+  font-family:"Yanone Kaffeesatz", 'SketchRockwellRegular', serif; font-weight:900;text-shadow:0 1px 0 #FFFFFF;
+}
 .comment .author .meta {
   float: left;
   margin-top:10px;
-  font-size: 18px;
+  font-size: 24px;
   color: #5e6162;
   margin-left: 20px;
 }
@@ -433,7 +468,9 @@ pre {
 }
 
 .comment .body {
-  margin: 10px 10px 10px 80px;
+  margin: 10px 0 10px 80px;
+  text-align: justify;
+  letter-spacing: 1px;
 }
 
 .block table {
@@ -706,210 +743,3 @@ top:1px;
 box-shadow:1px 1px 2px rgba(0,0,0,0.2);
 }
 
-
-/* For the details, see: http://flowplayer.org/tools/dateinput/index.html#skinning */
-
-/* the input field */
-.date {
-	border:1px solid #ccc;
-	font-size:18px;
-	padding:4px;
-	text-align:center;
-	width:194px;		
-	-moz-box-shadow:0 0 10px #eee inset;
-}
-
-/* calendar root element */
-#calroot {
-	/* place on top of other elements. set a higher value if nessessary */
-	z-index:1;
-	
-	margin-top:-1px;
-	width:198px;
-	padding:2px;
-	background-color:#fff;
-	font-size:11px;
-	border:1px solid #ccc;
-	-moz-border-radius:5px;
-	-webkit-border-radius:5px;
-	-moz-box-shadow: 0 0 15px #666;
-	-webkit-box-shadow: 0 0 15px #666;	
-}
-
-/* head. contains title, prev/next month controls and possible month/year selectors */
-#calhead {	
-	padding:2px 0;
-	height:22px;
-} 
-
-#caltitle {
-	font-size:14px;
-	color:#7C841F;	
-	float:left;
-	text-align:center;
-	width:155px;
-	line-height:20px;
-	text-shadow:0 1px 0 #ddd;
-}
-
-#calnext, #calprev {
-	display:block;
-	width:20px;
-	height:20px;
-	background:transparent url(../images/prev.gif) no-repeat scroll center center;
-	float:left;
-	cursor:pointer;
-}
-
-#calnext {
-	background-image:url(../images/next.gif);
-	float:right;
-}
-
-#calprev.caldisabled, #calnext.caldisabled {
-	visibility:hidden;	
-}
-
-/* year/month selector */
-#caltitle select {
-	font-size:10px;	
-}
-
-/* names of the days */
-#caldays {
-	height:14px;
-	border-bottom:1px solid #ddd;
-}
-
-#caldays span {
-	display:block;
-	float:left;
-	width:28px;
-	text-align:center;
-}
-
-/* container for weeks */
-#calweeks {
-	background-color:#fff;
-	margin-top:4px;
-}
-
-/* single week */
-.calweek {
-	clear:left;
-	height:22px;
-}
-
-/* single day */
-.calweek a {
-	display:block;
-	float:left;
-	width:27px;
-	height:20px;
-	text-decoration:none;
-	font-size:11px;
-	margin-left:1px;
-	text-align:center;
-	line-height:20px;
-	color:#666;
-	-moz-border-radius:3px;
-	-webkit-border-radius:3px; 		
-} 
-
-/* different states */
-.calweek a:hover, .calfocus {
-	background-color:#ddd;
-}
-
-/* sunday */
-a.calsun {
-	color:red;		
-}
-
-/* offmonth day */
-a.caloff {
-	color:#ccc;		
-}
-
-a.caloff:hover {
-	background-color:rgb(245, 245, 250);		
-}
-
-
-/* unselecteble day */
-a.caldisabled {
-	background-color:#efefef !important;
-	color:#ccc	!important;
-	cursor:default;
-}
-
-/* current day */
-#calcurrent {
-	background-color:#7C841F;
-	color:#fff;
-}
-
-/* today */
-#caltoday {
-	background-color:#333;
-	color:#fff;
-}
-
-
-
-div.wysiwyg { border: 1px solid #cccccc; padding: 5px; background-color: #ffffff; }
-div.wysiwyg * { margin: 0; padding: 0; }
-
-div.wysiwyg ul.panel { border-bottom: 1px solid #cccccc; float: left; width: 100%; padding: 0 0 0 0; }
-div.wysiwyg ul.panel li { list-style-type: none; float: left; margin: 1px 2px 3px 0;  background: #ffffff;}
-div.wysiwyg ul.panel li.separator { height: 16px; margin: 0 4px; border-left: 1px solid #cccccc; }
-div.wysiwyg ul.panel li a { text-indent: -5000px; opacity: 0.85; filter:alpha(opacity=85); display: block; width: 16px; height: 16px; background: url('../images/jquery.wysiwyg.gif') no-repeat -64px -80px; border: 0; cursor: pointer; padding: 1px; }
-div.wysiwyg ul.panel li a:hover, div.wysiwyg ul.panel li a.active { opacity: 1.00; filter:alpha(opacity=100); }
-div.wysiwyg ul.panel li a.active { background-color: #f9f9f9; border: 1px solid #cccccc; border-left-color: #aaaaaa; border-top-color: #aaaaaa; padding: 0; }
-
-div.wysiwyg ul.panel li a.bold { background-position: 0 -16px; }
-div.wysiwyg ul.panel li a.italic { background-position: -16px -16px; }
-div.wysiwyg ul.panel li a.strikeThrough { background-position: -32px -16px; }
-div.wysiwyg ul.panel li a.underline { background-position: -48px -16px; }
-
-div.wysiwyg ul.panel li a.justifyLeft { background-position: 0 0; }
-div.wysiwyg ul.panel li a.justifyCenter { background-position: -16px 0; }
-div.wysiwyg ul.panel li a.justifyRight { background-position: -32px 0; }
-div.wysiwyg ul.panel li a.justifyFull { background-position: -48px 0; }
-
-div.wysiwyg ul.panel li a.indent { background-position: -64px 0; }
-div.wysiwyg ul.panel li a.outdent { background-position: -80px 0; }
-
-div.wysiwyg ul.panel li a.subscript { background-position: -64px -16px; }
-div.wysiwyg ul.panel li a.superscript { background-position: -80px -16px; }
-
-div.wysiwyg ul.panel li a.undo { background-position: 0 -64px; }
-div.wysiwyg ul.panel li a.redo { background-position: -16px -64px; }
-
-div.wysiwyg ul.panel li a.insertOrderedList { background-position: -32px -48px; }
-div.wysiwyg ul.panel li a.insertUnorderedList { background-position: -16px -48px; }
-div.wysiwyg ul.panel li a.insertHorizontalRule { background-position: 0 -48px; }
-
-div.wysiwyg ul.panel li a.h1 { background-position: 0 -32px; }
-div.wysiwyg ul.panel li a.h2 { background-position: -16px -32px; }
-div.wysiwyg ul.panel li a.h3 { background-position: -32px -32px; }
-div.wysiwyg ul.panel li a.h4 { background-position: -48px -32px; }
-div.wysiwyg ul.panel li a.h5 { background-position: -64px -32px; }
-div.wysiwyg ul.panel li a.h6 { background-position: -80px -32px; }
-
-div.wysiwyg ul.panel li a.cut { background-position: -32px -64px; }
-div.wysiwyg ul.panel li a.copy { background-position: -48px -64px; }
-div.wysiwyg ul.panel li a.paste { background-position: -64px -64px; }
-
-div.wysiwyg ul.panel li a.increaseFontSize { background-position: -16px -80px; }
-div.wysiwyg ul.panel li a.decreaseFontSize { background-position: -32px -80px; }
-
-div.wysiwyg ul.panel li a.createLink { background-position: -80px -48px; }
-div.wysiwyg ul.panel li a.insertImage { background-position: -80px -80px; }
-
-div.wysiwyg ul.panel li a.html { background-position: -47px -46px; }
-div.wysiwyg ul.panel li a.removeFormat { background-position: -80px -63px; }
-
-div.wysiwyg ul.panel li a.empty { background-position: -64px -80px; }
-
-div.wysiwyg iframe { border: 0;  clear: left; margin: 4px 0 0 1px; }

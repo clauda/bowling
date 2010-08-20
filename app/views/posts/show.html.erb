@@ -1,17 +1,20 @@
 <h1><%= link_to @post.title, permalink_path(@post.slug) %></h1>
-<span class="oright" style="margin-left:10px;"><%= tweet_button %></span>
-<p style="text-align:right;padding:10px;font-size:14px;color:#656565"><%= l(@post.published_at) if @post.published_at %></p>
+<div class="published_at"><%= l(@post.published_at) if @post.published_at %></div>
 
 <%= textilize @post.body %>
 
-<p style="color:grey;text-align:right;"><%= link_to @post.user.name, profiles_path %></p>
-<br />
-  <span class="oright">
+<div class="published_at"><%= @post.user.name %></div>
+<div id="rodape" class="box clearfix">
+  <span><%= tweet_button %></span>
+  <span>
     <% @post.categories.each do |c| %>
-      <i><%= link_to c.name, category_path(c.name) %></i>, 
+      <%= link_to c.name, filter_path(c.name) %>
     <% end %>
   </span>
-</p>
+  <span>
+    <% @post.tag_list.each do |t| %> <%= t %> <% end %>
+  </span>
+</div>
 <%#= @post.comments.count %>
 
 <div id="comments">

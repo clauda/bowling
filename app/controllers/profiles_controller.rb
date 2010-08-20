@@ -8,14 +8,17 @@ class ProfilesController < ApplicationController
 
   def show
     @profile = current_user.profile
+    render :layout => 'admin'
   end
 
   def new
     @profile = Profile.new
+    render :layout => 'admin'
   end
 
   def edit
     @profile = current_user.profile
+    render :layout => 'admin'
   end
 
   def create
@@ -23,24 +26,24 @@ class ProfilesController < ApplicationController
     @profile.user = current_user
     respond_to do |format|
       if @profile.save
-        format.html { redirect_to(@profile, :notice => 'Profile was successfully created.') }
+        format.html { redirect_to(profile_path, :notice => 'Profile was successfully created.') }
         format.xml  { render :xml => @profile, :status => :created, :location => @profile }
       else
-        format.html { render :action => "new" }
+        format.html { render :action => "new", :layout => 'admin' }
         format.xml  { render :xml => @profile.errors, :status => :unprocessable_entity }
       end
     end
   end
 
   def update
-    @profile = Profile.find(params[:id])
+    @profile = current_user.profile
 
     respond_to do |format|
       if @profile.update_attributes(params[:profile])
-        format.html { redirect_to(@profile, :notice => 'Profile was successfully updated.') }
+        format.html { redirect_to(profile_path, :notice => 'Profile was successfully updated.') }
         format.xml  { head :ok }
       else
-        format.html { render :action => "edit" }
+        format.html { render :action => "edit", :layout => 'admin' }
         format.xml  { render :xml => @profile.errors, :status => :unprocessable_entity }
       end
     end

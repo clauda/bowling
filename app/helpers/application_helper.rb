@@ -1,23 +1,16 @@
 module ApplicationHelper
   include TweetButton
 
-  TweetButton.default_tweet_button_options = {:via => nil}
+  TweetButton.default_tweet_button_options = { :via => nil, :count => :horizontal }
 
   def flash_message
-    messages = ""
-    [:notice, :info, :warning, :error].each do|type|
-      if flash[type]
-        messages = raw("<div class='#{type}'>#{flash[type]}</div>")
-      end
-    end
-    messages
+    flash.collect do |key, msg|
+      content_tag(:div, msg, :id => "#{key}")
+    end.join.html_safe
   end
 
-  #ISSUE: Not work
-  def flash_message_nifty
-    flash.each do |msg, name|
-      content_tag(:div, msg, :class => "#{name}") if msg.is_a?(String)
-    end
+  def error_messages_for(resource)
+    render 'shared/error_messages', :resource => resource
   end
 
 end

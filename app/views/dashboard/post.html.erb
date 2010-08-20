@@ -1,0 +1,27 @@
+<h1><%= link_to @post.title, permalink_path(@post.slug) %></h1>
+<div class="published_at"><%= l(@post.published_at) if @post.published_at %></div>
+
+<%= textilize @post.body %>
+
+<br />
+  <span class="right">
+    <% @post.categories.each do |c| %>
+      Categorias: <i><%= link_to c.name, category_path(c.name) %></i>
+    <% end %>
+  </span>
+  <br />
+  <span class="right">
+    <% @post.tag_list.each do |t| %>
+      Tags: <i><%= t %></i>
+    <% end %>
+  </span>
+</p>
+
+<div id="comments">
+<%- if @post.comments.any? -%>
+  <%= render @post.comments %>
+<%- end -%>
+</div>
+<br />
+<br />
+<%= link_to t('Edit'), edit_post_path(@post) %>  | <%= link_to t('Back'), dashboard_path %>

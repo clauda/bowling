@@ -2,6 +2,7 @@ Bowling::Application.routes.draw do
   
   match "dashboard", :to => "dashboard#index"
   match "about", :to => "dashboard#about"
+  match "admin/post/:id", :to => "dashboard#post", :as => 'admin_post'
 
   root :to => "posts#index"
 
@@ -10,8 +11,14 @@ Bowling::Application.routes.draw do
     get "/logout" => "devise/sessions#destroy"
   end
 
-  resources :users
-  resources :profiles
+  get 'users' => 'users#index'
+  match 'profile' => 'profiles#show', :as => 'profile'
+  match 'team' => 'profiles#index', :as => 'team'
+  get 'profile/new' => 'profiles#new'
+  post 'create' => 'profiles#create'
+  get 'profile/edit' => 'profiles#edit'
+  put 'update' => 'profiles#update'
+
   resources :posts do
     resources :comments
   end

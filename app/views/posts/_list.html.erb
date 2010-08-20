@@ -1,34 +1,23 @@
 <div class="block">
-  <table>
-    <tr>
-      <th>Title</th>
-      <th>Slug</th>
-      <th>User</th>
-      <th>Status</th>
-      <th>Comments</th>
-      <th></th>
-    </tr>
-
+  <ul class="list">
   <% @posts.each do |post| %>
-    <tr>
-      <td><%= link_to post.title, post %></td>
-      <td><%= post.slug %></td>
-      <td><%= post.user.name %></td>
-      <td>
-        <% if post.draft? %>
-          <%= form_tag publish_path(post), :method => :post do %>
-            <%= submit_tag t('publish'), :class => "submit", :disable_with => "wait..." %>
+      <%= content_tag_for :li, post, :class => cycle(:odd, :even) do %>
+       <%= link_to post.title, admin_post_path(post) %> por <%= post.user.name %>
+
+        <div class="right">
+          <% if post.draft? %>
+            <%= link_to t('publish'), publish_path(post), :class => "button" %>
+          <% else %>
+            <%= t("published") %> <%= l post.published_at if post.published_at %>
           <% end %>
-        <% else %>
-          <%= t("published") %> <%= l post.published_at if post.published_at %>
-        <% end %>
-      </td>
-      <td><%= post.comments.size %></td>
-      <td><%= link_to image_tag('edit.png'), edit_post_path(post) %></td>
-    </tr>
-  <% end %>
-  </table>
+          <%= link_to image_tag('edit.png'), edit_post_path(post) %>
+        </div>
+      <% end %>
+    <% end %>
+  </ul>
   <%= will_paginate @posts %>
 
   <br />
 </div>
+
+

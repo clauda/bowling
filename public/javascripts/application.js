@@ -1,8 +1,9 @@
-$(document).ready(function() {
+
+jQuery(function($) {
     $(":date").dateinput();
 });
 
-$(document).ready(function() {
+jQuery(function($) {
   $('#wysiwyg').wysiwyg({
     controls: {
       strikeThrough : { visible : true },

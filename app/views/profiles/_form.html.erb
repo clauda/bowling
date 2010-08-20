@@ -1,22 +1,11 @@
-<%= form_for @profile do |f| %>
-  <% if @profile.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@profile.errors.count, "error") %> prohibited this profile from being saved:</h2>
 
-      <ul>
-      <% @profile.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
   <div class="field">
     <%= f.label :photo, 'url da foto' %>
-    <%= f.text_field :photo %>
+    <%= f.text_field :photo, :class => "title" %>
   </div>
   <div class="field">
     <%= f.label :name %>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, :class => "title" %>
   </div>
   <div class="field">
     <%= f.label :description %>
@@ -24,12 +13,10 @@
   </div>
   <div class="field">
     <%= f.label :site %>
-    <%= f.text_field :site %>
+    <%= f.text_field :site , :class => "title"%>
   </div>
-  <br />
   <br />
   <div class="actions">
-    <%= f.submit t("Save"), :class => "submit" %>
+    <%= f.submit t("Save"), :class => "button" %>
   </div>
-  <br />
-<% end %>
+

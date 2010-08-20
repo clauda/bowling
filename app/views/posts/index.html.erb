@@ -1,8 +1,7 @@
 <% @posts.each do |post| %>
   <h1><%= link_to post.title, permalink_path(post.slug) %></h1>
-  <p style="text-align:right;padding:5px;font-size:14px"><%= l(post.published_at) %></p>
+  <div class="published_at"><%= l(post.published_at) %></div>
   <%= textilize post.body %>
-  <p style="color:grey;text-align:right;font-size:14px"><%= link_to post.user.name, profiles_path %></p>
 <% end %>
 <%= will_paginate @posts %>
 
@@ -11,7 +10,7 @@
     <%= link_to tag.name, tag_path(tag.name), :class => css_class %>
   <% end %>
 
-  <% Category.all.each do |c| %>
+  <% @categories.each do |c| %>
     <%= link_to c.name, filter_path(c.name), :class => "css2" %>
   <% end %>
   <%#TODO: filtro de posts por categoria e por tag %>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Khronus | Admin</title>
+  <%= stylesheet_link_tag "admin", "scaffold" %>
+  <%= javascript_include_tag "jquery.tools.min", "application", "rails" %>
+  <%= javascript_include_tag "jquery.wysiwyg" %>
+  <%= csrf_meta_tag %>
+</head>
+<body>
+
+  <div id="wrapper">
+
+    <div id="info">        	
+    	<span class="right">
+        <div class="nav">
+          <% if current_user.profile %>
+            <%= link_to t("Profile"), profile_path, :class => "profile" %> |
+          <% else %>
+              <%= link_to t('Create Your Profile'), profile_new_path %> |
+          <% end %>
+          <%= link_to t("Edit"), edit_user_password_path, :class => "profile" %> |
+          <%= link_to t("Logout"), logout_path, :class => "logout" %>
+        </div>
+      </span>	
+    </div><!-- end info -->
+    
+    <div id="header">
+      <div id="main-nav">
+        <ul class="menu">
+        	<li><%= link_to "Dashboard", dashboard_path %></li>  
+          <li><%= link_to t("Users"), users_path %></li> 
+        <ul>
+      </div>
+    </div>
+
+    <div id="content-wrapper">
+      <div id="content">
+        <div class="in">
+          <%= flash_message %>
+          <%= yield %>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

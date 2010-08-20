@@ -1,6 +1,7 @@
-<h1>Editing your profile</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @profile %> |
-<%= link_to 'Back', profiles_path %>
+<h2>your profile</h2>
+<%= form_for @profile, :url => { :action => 'update' }, :method => :put do |f| %>  
+  <%= error_messages_for @profile %>
+  <%= render :partial =>'form', :locals => { :f => f } %>
+<% end %>
+<%= link_to 'Voltar para o meu perfil', profile_path %> |
+<%= link_to 'Dashboard', dashboard_path %>

@@ -1,30 +1,26 @@
-<h1>Posts</h1>
-<span class="oright"><%= link_to image_tag('add.png'), new_post_path %></span>
+<h2>Posts</h2>
+<span class="right"><%= link_to image_tag('add.png'), new_post_path %></span>
 <%= render :partial => "posts/list" %>
 
-<h1>Categories</h1>
-<div style="width:450px">
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Posts</th>
-  </tr>
-
-<% @categories.each do |category| %>
-  <tr>
-    <td><%= link_to category.name, filter_path(category.name) %></td>
-    <td><%= category.posts.size %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-<%= form_for(Category.new, :method => :post) do |f| %>
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-    <%= f.submit t("Save"), :class => "submit" %>
+<div id="sidebar">
+  <div class="section">
+    <h3>Categories</h3>
+    <div class="in">
+      <ul class="categories-field">    
+        <% @categories.each do |category| %>
+          <%= content_tag_for :li, category, :class => cycle(:odd, :even) do %>
+            <%= link_to category.name, filter_path(category.name) %>
+            <div class="right">
+              (<%= category.posts.size %>)
+            </div>
+          <% end %>
+        <% end %>
+      </ul>
+    </div>
+    <%= form_for(Category.new, :method => :post) do |f| %>
+      <div class="field"><%= f.text_field :name, :size => 26 %>
+      <br /><%= f.submit t("New"), :class => "button" %></div>
+    <% end %>
   </div>
-<% end %>
 </div>
 
