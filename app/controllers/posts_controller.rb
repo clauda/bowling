@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   
-  before_filter :authenticate_user!, :only => %w(new create edit update destroy show)
+  before_filter :authenticate_user!, :only => %w(new create edit update destroy)
   before_filter :load_categories, :only => %w(index new create edit update)
 
   def index
@@ -20,7 +20,7 @@ class PostsController < ApplicationController
   end
 
   def new
-    @post = Post.new(:user => current_user)
+    @post = Post.new
     render :layout => 'admin'
   end
 
@@ -32,10 +32,10 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(params[:post])
     @post.user = current_user
-    @post.tag_list << params[:post][:tag_list].split(",") if params[:post][:tag_list]
+    #@post.tag_list << params[:post][:tag_list].split(",") if params[:post][:tag_list]
     respond_to do |format|
       if @post.save
-        format.html { redirect_to(admin_post_path, :notice => 'Post was successfully created.') }
+        format.html { redirect_to(dashboard_path, :notice => 'Post was successfully created.') }
         format.xml  { render :xml => @post, :status => :created, :location => @post }
       else
         format.html { render :action => "new", :layout => 'admin' }
@@ -70,12 +70,18 @@ class PostsController < ApplicationController
     @post.published_at = Time.now
     flash[:notice] = "Published"
     @post.save
-    respond_with @post
+    redirect_to @post
   end
 
   def tags
     @posts = Post.tagged_with(params[:name]).paginate(:page => params[:page])
     render "index"
+  end
+
+  def rss
+    @posts = Post.limit 10
+    render :layout => false
+    response.headers["Content-Type"] = "application/xml; charset=utf-8"
   end
 
 protected

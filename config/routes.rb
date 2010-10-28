@@ -22,11 +22,12 @@ Bowling::Application.routes.draw do
   resources :posts do
     resources :comments
   end
-
+  
   match 'publish/:id', :to => "posts#publish", :as => "publish"
   resources :categories
   match "category/:name", :to => "categories#posts_by_categories", :as => "filter"
   match "tag/:name", :to => "posts#tags", :as => "tag"
+  get "rss" => "posts#rss"
 
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
