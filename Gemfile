@@ -6,7 +6,6 @@ gem 'rails', '3.0.0.rc'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem "mysql"
-gem 'ckeditor', '3.4.2.pre'
 
 # Use unicorn as the web server
 # gem 'unicorn'
@@ -20,4 +19,5 @@ gem 'will_paginate', '3.0.pre2'
 gem 'RedCloth', '4.2.3'
 gem "tweet-button"
 gem 'acts-as-taggable-on'
+gem 'ckeditor', '3.4.2.pre'
 
