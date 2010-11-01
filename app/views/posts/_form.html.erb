@@ -4,8 +4,8 @@
     <div class="field">
       <%= f.text_field :title, :class => "title" %>
     </div>
-    <div class="field">
-      <%= f.text_area :body, :id => "wysiwyg" %>
+    <div class="">
+      <%= f.cktext_area :body, :toolbar=>'Full', :width=>'100%', :height=>'800px' %>
     </div>
   </div>
 
@@ -56,6 +56,6 @@
     <br />
   </div>
 
-  <div id="body"><%= f.submit t("Save"), :class => "button" %> or <%= link_to 'cancel', dashboard_path %></div>
+  <div id="body"><br /><%= f.submit t("Save"), :class => "button" %> or <%= link_to 'cancel', dashboard_path %></div>
   <% end %>
 
