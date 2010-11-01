@@ -4,7 +4,7 @@ class CategoriesController < ApplicationController
 
   def posts_by_categories
     @category = Category.find_by_name(params[:name])
-    @posts = @category.posts.paginate(:page => params[:page])
+    @posts = @category.posts.published.paginate(:page => params[:page])
     @categories = Category.all
     render "posts/index"
   end
